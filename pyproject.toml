@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "hector"
+version = "0.1.0"
+description = "A code quality & coverage analytics toolkit"
+authors = ["0xlakshay"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.31.0"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.2.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
