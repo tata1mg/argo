@@ -6,6 +6,9 @@ authors = ["0xlakshay"]
 license = "MIT"
 readme = "README.md"
 
+[tool.poetry.scripts]
+hector = "hector.cli:core_typer"
+
 [tool.poetry.dependencies]
 python = "^3.8"
 requests = "^2.31.0"

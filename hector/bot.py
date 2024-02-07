@@ -3,15 +3,13 @@ import os
 
 from datetime import datetime, timedelta, timezone
 
-from rich.console import Console
-from rich.json import JSON
+from rich.panel import Panel
+from rich.pretty import Pretty
 
 from .client import APIClient
+from .console import console
 from .log import bot_logger
 from .models import CovReport, DiffCovReport
-
-
-console = Console()
 
 
 class CoverageBot:
@@ -104,8 +102,9 @@ class CoverageBot:
         }
         payload = json.dumps({"content": {"raw": comment}})
         resp = self.client.post(url, headers=headers, data=payload)
+        console.rule("[DEBUG] API Response")
         console.log(f"Response Status {resp.status_code}")
-        console.log(JSON(resp.json()))
+        console.log(Panel(Pretty(resp.json())))
 
     @staticmethod
     def __convert_to_ranges(lst: list):

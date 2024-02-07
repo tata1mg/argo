@@ -2,14 +2,12 @@ import json
 
 import typer
 
-from rich.console import Console
+from rich.panel import Panel
 from typing_extensions import Annotated
 
 from ..bot import CoverageBot
+from ..console import console
 from ..models import CovReport, DiffCovReport
-
-
-console = Console()
 
 
 bot_typer = typer.Typer(help="Bot actions. Use `--help` for more options.")
@@ -36,7 +34,8 @@ def post(
     with console.status("Preparing Comment"):
         bot = CoverageBot(cov=cov, diff_cov=diff_cov)
         bot_comment = bot.get_comment()
-        console.log(bot_comment)
+        console.rule("Comment")
+        console.log(Panel(bot_comment))
 
     if dry:
         return

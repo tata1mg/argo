@@ -20,7 +20,7 @@ class CovReport:
     files: Dict[str, Dict[str, Any]] = field(default_factory=dict)
     totals: CovReportTotals = field(default_factory=CovReportTotals)
 
-    def _post_init_(self):
+    def __post_init__(self):
         if isinstance(self.totals, dict):
             self.totals = CovReportTotals(**self.totals)
 
@@ -39,7 +39,7 @@ class DiffCovReport:
     num_changed_lines: int
     src_stats: Dict[str, Any] = field(default_factory=dict)
 
-    def _post_init_(self):
+    def __post_init__(self):
         self.src_stats = dict(
             sorted(
                 self.src_stats.items(),
