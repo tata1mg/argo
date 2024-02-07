@@ -1,11 +1,11 @@
 import json
 import logging
 import os
-import sys
+
 from datetime import datetime, timedelta, timezone
 
 from .client import APIClient
-from .models import DiffCoverageReport, CovReport
+from .models import CovReport, DiffCoverageReport
 
 
 logging.basicConfig(level=logging.DEBUG)
@@ -73,7 +73,9 @@ class CoverageBot:
                 f"> _{file_stats_len - 10}_ more files [Full Coverage Report]({step_link}) \n\n"
             )
         else:
-            file_stats.append(f"> Check [Full Coverage Report]({step_link}) \n\n")
+            file_stats.append(
+                f"> Check [Full Coverage Report]({step_link}) \n\n"
+            )
         return "\n".join(file_stats)
 
     def _format_commit_link(self):
