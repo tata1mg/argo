@@ -2,7 +2,7 @@
 
 A code quality & coverage analytics toolkit.
 
-Build with ❤️ @ Tata 1mg
+Built with 🤍 @ Tata 1mg
 
 ✨ FOSS, self hosted, self managed alternative to `codecov`, `codeclimate`, `codefactor` & similar services.
 
@@ -13,7 +13,7 @@ Build with ❤️ @ Tata 1mg
 ## Installation
 
 ```py
-pip install pip install git+https://github.com/tata1mg/hector.git
+pip install git+https://github.com/tata1mg/hector.git
 ```
 
 ## Usage
