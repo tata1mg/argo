@@ -30,7 +30,7 @@ class CovReport:
 
 
 @dataclass
-class DiffCoverageReport:
+class DiffCovReport:
     report_name: str
     diff_name: str
     total_num_lines: int

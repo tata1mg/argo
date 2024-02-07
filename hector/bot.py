@@ -1,18 +1,21 @@
 import json
-import logging
 import os
 
 from datetime import datetime, timedelta, timezone
 
+from rich.console import Console
+from rich.json import JSON
+
 from .client import APIClient
-from .models import CovReport, DiffCoverageReport
+from .log import bot_logger
+from .models import CovReport, DiffCovReport
 
 
-logging.basicConfig(level=logging.DEBUG)
+console = Console()
 
 
 class CoverageBot:
-    def __init__(self, cov: CovReport, diff_cov: DiffCoverageReport):
+    def __init__(self, cov: CovReport, diff_cov: DiffCovReport):
         self.diff_cov = diff_cov
         self.cov = cov
         self.client = APIClient()
@@ -61,7 +64,7 @@ class CoverageBot:
         for file, stat in src_stats.items():
             if stat["percent_covered"] < 100:
                 file_stat = f"❗️ {stat['percent_covered']:5.2f}% | {file} {self.__convert_to_ranges(stat['violation_lines'])}"
-                logging.info(file_stat)
+                console.log(file_stat)
                 file_stats.append(file_stat)
         file_stats_len = len(file_stats)
         if file_stats_len > 10:
@@ -93,7 +96,7 @@ class CoverageBot:
         repo_slug = os.environ.get("BITBUCKET_REPO_SLUG")
         pr_id = os.environ.get("BITBUCKET_PR_ID")
         url = f"https://api.bitbucket.org/2.0/repositories/{os.environ.get('BITBUCKET_WORKSPACE')}/{repo_slug}/pullrequests/{pr_id}/comments"
-        logging.debug(url)
+        console.log(f"POST url: {url}")
         headers = {
             "Authorization": f"Bearer {os.environ.get('TEST_COVERAGE_TOKEN')}",
             "Accept": "application/json",
@@ -101,8 +104,8 @@ class CoverageBot:
         }
         payload = json.dumps({"content": {"raw": comment}})
         resp = self.client.post(url, headers=headers, data=payload)
-        logging.debug(resp.status_code)
-        logging.debug(resp.json())
+        console.log(f"Response Status {resp.status_code}")
+        console.log(JSON(resp.json()))
 
     @staticmethod
     def __convert_to_ranges(lst: list):
@@ -121,8 +124,9 @@ class CoverageBot:
 
 
 if __name__ == "__main__":
+    # FIXME: remove once cli stable
     with open("diff-coverage.json", encoding="utf-8") as f:
-        diff_cov = DiffCoverageReport(**json.load(f))
+        diff_cov = DiffCovReport(**json.load(f))
 
     with open("coverage.json", encoding="utf-8") as f:
         cov = CovReport(**json.load(f))
@@ -130,5 +134,5 @@ if __name__ == "__main__":
     bot = CoverageBot(cov=cov, diff_cov=diff_cov)
 
     bot_comment = bot.get_comment()
-    logging.info(bot_comment)
+    bot_logger.info(bot_comment)
     bot.post_comment(comment=bot_comment)
