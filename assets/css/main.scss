@@ -1,0 +1,26 @@
+---
+---
+
+@import "no-style-please";
+
+body{
+    background-color: #fefcf8;
+    color: black;
+}
+
+code {
+    color: white;
+    background: #fe6f61;
+}
+
+header {
+    display: none;
+}
+
+input[type="checkbox"]{
+    margin-right: 8px;
+}
+
+ul.task-list{
+    list-style-type: none;
+}
