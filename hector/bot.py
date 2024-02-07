@@ -36,9 +36,10 @@ class CoverageBot:
         comment += f"##### Overall Coverage {overall_coverage:.2f}% | Covered Lines {lines_covered} | Missing {lines_missed} \n\n"
 
         # add file stats
-        comment += "📂 Impacted Files \n\n"
-        file_stats = self._format_file_stats()
-        comment += file_stats
+        if lines_missed != 0:
+            comment += "📂 Impacted Files \n\n"
+            file_stats = self._format_file_stats()
+            comment += file_stats
 
         # add footer
         commit_link = self._format_commit_link()
