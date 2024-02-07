@@ -9,7 +9,6 @@ Built with 🤍 @ Tata 1mg
 - Lightweight, stateless CI pipeline integration
 - PR comments with coverage & code health reports
 
-
 ## Installation
 
 ```py
@@ -19,7 +18,22 @@ pip install git+https://github.com/tata1mg/hector.git
 ## Usage
 
 ```py
-python3 -m hector.bot
+hector --help
+```
+
+![](./assets/ss/01.png)
+
+```py
+# 1. Run you tests
+# 2. Generate coverage report (coverage.json)
+```
+
+```py
+hector diff # WIP
+```
+
+```py
+hector comment --bitbucket
 ```
 
 ## Roadmap
