@@ -17,7 +17,7 @@ class CoverageBot:
     def __init__(self, cov: Optional[CovReport]=None, diff_cov: Optional[DiffCovReport]=None):
         self.client = APIClient()
         if not diff_cov or not cov:
-            diff_cov, cov = self.parse_reports()
+            diff_cov, cov = self._parse_reports()
         self.diff_cov = diff_cov
         self.cov = cov
 
@@ -36,12 +36,12 @@ class CoverageBot:
         with console.status("Posting Comment", spinner="aesthetic"):
             bot.post_comment(comment=bot_comment)
 
-    def parse_reports():
+    def _parse_reports(self):
         if not os.path.isfile("diff-coverage.json"):
             raise Exception("Missing diff-coverage.json!")
 
         if not os.path.isfile("coverage.json"):
-            raise Exception("Please provide coverage.json")
+            raise Exception("Please provide a coverage.json file!")
 
         with console.status("Parsing Reports"):
             with open("diff-coverage.json", encoding="utf-8") as f:
