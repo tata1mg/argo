@@ -18,6 +18,10 @@ core_typer = typer.Typer(
 
 @core_typer.command(help="Generate diff coverage report and post a comment to the Bitbucket PR.")
 def report(
+    compare_branch: Annotated[
+        str,
+        typer.Option(help="Branch to compare."),
+    ] = "origin/master",
     fail_under: Annotated[
         int,
         typer.Option(help="Diff Coverage percent below which error code is returned."),
@@ -27,7 +31,7 @@ def report(
         typer.Option(help="Only prepare comment without actually posting."),
     ] = False,
 ):
-    returncode, stdout, stderr = generate_report(fail_under=fail_under)
+    returncode, stdout, stderr = generate_report(compare_branch=compare_branch, fail_under=fail_under)
 
     if stdout:
         console.rule("Report")

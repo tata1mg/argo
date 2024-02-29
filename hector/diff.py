@@ -9,13 +9,13 @@ import subprocess
 from typing import Optional, Union
 
 
-def generate_report(fail_under: Optional[Union[int, str]] = None):
+def generate_report(compare_branch: Optional[str] = "origin/master", fail_under: Optional[Union[int, str]] = None):
 
     cmd = [
                 "diff-cover",
                 "coverage.xml",
                 "--compare-branch",
-                "master",
+                compare_branch,
                 "--json-report",
                 "diff-coverage.json"
             ]
