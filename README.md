@@ -17,20 +17,30 @@ pip install git+https://github.com/tata1mg/hector.git
 
 ## Usage
 
+Simply type hector in your terminal for all the options
 ```py
-hector --help
+$ hector
 ```
 
+**Add following steps to your bitbucket pipeline**
+
+Run your test suite & generate coverage report
 
 ```py
-# Run your test suite & generate coverage report
-coverage run pytest .
-# Generate coverage.json (required for parsable coverage stats)
-coverage json
-# Generate coverage.xml (required by hector diff report)
-coverage xml
-# Run hector to post a comment
-hector report
+$ coverage run pytest .
+```
+
+Generate `coverage.json` (required for parsable coverage stats)
+& `coverage.xml` (required by hector diff report)
+
+```py
+$ coverage json
+$ coverage xml
+```
+
+Run hector inside the bitbucket pipeline to post a comment
+```py
+$ hector report
 ```
 
 ## Roadmap
