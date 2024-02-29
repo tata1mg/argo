@@ -21,19 +21,16 @@ pip install git+https://github.com/tata1mg/hector.git
 hector --help
 ```
 
-![](./assets/ss/01.png)
 
 ```py
-# 1. Run you tests
-# 2. Generate coverage report (coverage.json)
-```
-
-```py
-hector diff # WIP
-```
-
-```py
-hector comment --bitbucket
+# Run your test suite & generate coverage report
+coverage run pytest .
+# Generate coverage.json (required for parsable coverage stats)
+coverage json
+# Generate coverage.xml (required by hector diff report)
+coverage xml
+# Run hector to post a comment
+hector report
 ```
 
 ## Roadmap
