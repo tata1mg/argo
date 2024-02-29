@@ -29,8 +29,13 @@ def report(
 ):
     returncode, stdout, stderr = generate_report(fail_under=fail_under)
 
-    console.rule("Report")
-    console.print(stdout.decode())
+    if stdout:
+        console.rule("Report")
+        console.print(stdout.decode())
+
+    if stderr:
+        console.rule("Err")
+        console.print(stderr.decode())
 
     bot = CoverageBot(returncode=returncode)
     bot.post(dry=dry)
