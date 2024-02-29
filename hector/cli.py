@@ -10,8 +10,9 @@ from .diff import generate_report
 
 
 core_typer = typer.Typer(
-    help="A code quality & coverage analytics toolkit.\n\nBuilt with 🤍 @ Tata 1mg.",
-    no_args_is_help=True
+    help="A code quality & coverage analytics toolkit.\n\n",
+    no_args_is_help=True,
+    epilog="Built with 🤍 @ Tata 1mg (https://www.1mg.com/jobs)"
 )
 
 
@@ -24,7 +25,7 @@ def report(
     ] = "origin/master",
     fail_under: Annotated[
         int,
-        typer.Option(help="Diff Coverage percent below which error code is returned."),
+        typer.Option(help="Diff Coverage percent below which error code is returned.", show_default=False),
     ] = None,
     dry: Annotated[
         bool,
