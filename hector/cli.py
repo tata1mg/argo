@@ -5,6 +5,7 @@ import typer
 from typing_extensions import Annotated
 
 from .bot import CoverageBot
+from .console import console
 from .diff import generate_report
 
 
@@ -27,11 +28,16 @@ def report(
     ] = False,
 ):
     returncode, stdout, stderr = generate_report(fail_under=fail_under)
-    print(stdout)
+
+    console.rule("Report")
+    console.print(stdout.decode())
+
     bot = CoverageBot()
     bot.post(dry=dry)
+
     if int(returncode)!=1:
-        print(stderr)
+        console.rule("Failed")
+        print(stderr.decode())
         sys.exit(int(returncode))
 
 @core_typer.command(help="[WIP] Serve hector as a web application.")

@@ -17,9 +17,7 @@ def generate_report(fail_under: Optional[Union[int, str]] = None):
                 "--compare-branch",
                 "master",
                 "--json-report",
-                "diff-coverage.json",
-                "--fail-under",
-                str(fail_under),
+                "diff-coverage.json"
             ]
 
     if fail_under:
@@ -31,6 +29,8 @@ def generate_report(fail_under: Optional[Union[int, str]] = None):
 
         if not (0 <= fail_under <= 100):
             raise Exception("Invalid value for Fail under! Out of Range!!")
+
+        cmd.extend(["--fail-under", str(fail_under)])
 
 
     if not os.path.isfile("coverage.xml"):
