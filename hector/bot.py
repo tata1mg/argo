@@ -35,7 +35,7 @@ class CoverageBot:
             return
 
         with console.status("Posting Comment", spinner="aesthetic"):
-            bot.post_comment(comment=bot_comment)
+            self.post_comment(comment=bot_comment)
 
     def _parse_reports(self):
         if not os.path.isfile("diff-coverage.json"):
