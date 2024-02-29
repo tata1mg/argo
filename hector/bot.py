@@ -66,13 +66,13 @@ class CoverageBot:
 
         # add title
         emoji = self._title_emoji()
-        comment += f"## 📈 Diff Coverage {diff_coverage:.2f}% {emoji} \n\n"
+        comment += f"## 📈 Diff Coverage `{diff_coverage:.2f}% {emoji}` \n\n"
         # add subtitle
-        comment += f"##### Overall Coverage {overall_coverage:.2f}% | Covered Lines {lines_covered} | Missing {lines_missed} \n\n"
+        comment += f"##### Covered Lines `{lines_covered}` | Missing `{lines_missed}` | Overall Coverage `{overall_coverage:.2f}%` \n\n"
 
         # add file stats
         if lines_missed != 0:
-            comment += "##### 📂 Files with missing coverage \n\n"
+            comment += "#### `📂 Files with missing coverage` \n\n"
             file_stats = self._format_file_stats()
             comment += file_stats
 
