@@ -32,7 +32,7 @@ def report(
     console.rule("Report")
     console.print(stdout.decode())
 
-    bot = CoverageBot()
+    bot = CoverageBot(returncode=returncode)
     bot.post(dry=dry)
 
     if int(returncode)!=0:

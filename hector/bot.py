@@ -2,7 +2,7 @@ import json
 import os
 
 from datetime import datetime, timedelta, timezone
-from typing import Optional
+from typing import Optional, Union
 
 from rich.panel import Panel
 from rich.pretty import Pretty
@@ -14,7 +14,8 @@ from .models import CovReport, DiffCovReport
 
 
 class CoverageBot:
-    def __init__(self, cov: Optional[CovReport]=None, diff_cov: Optional[DiffCovReport]=None):
+    def __init__(self, returncode: Union[int, str], cov: Optional[CovReport]=None, diff_cov: Optional[DiffCovReport]=None):
+        self.returncode = int(returncode)
         self.client = APIClient()
         if not diff_cov or not cov:
             diff_cov, cov = self._parse_reports()
@@ -82,10 +83,7 @@ class CoverageBot:
         return comment
 
     def _title_emoji(self):
-        if (
-            os.environ.get("BITBUCKET_EXIT_CODE")
-            and int(os.environ.get("BITBUCKET_EXIT_CODE")) != 0
-        ):
+        if self.returncode!=0:
             return "❗️"
         return "✅"
 
