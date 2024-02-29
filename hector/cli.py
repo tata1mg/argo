@@ -35,7 +35,7 @@ def report(
     bot = CoverageBot()
     bot.post(dry=dry)
 
-    if int(returncode)!=1:
+    if int(returncode)!=0:
         console.rule("Failed")
         print(stderr.decode())
         sys.exit(int(returncode))

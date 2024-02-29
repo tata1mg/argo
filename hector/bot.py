@@ -71,7 +71,7 @@ class CoverageBot:
 
         # add file stats
         if lines_missed != 0:
-            comment += "📂 Impacted Files \n\n"
+            comment += "📂 Files with missing coverage \n\n"
             file_stats = self._format_file_stats()
             comment += file_stats
 
@@ -95,7 +95,7 @@ class CoverageBot:
         for file, stat in src_stats.items():
             if stat["percent_covered"] < 100:
                 file_stat = f"❗️ {stat['percent_covered']:5.2f}% | {file} {self.__convert_to_ranges(stat['violation_lines'])}"
-                console.log(file_stat)
+                # console.log(file_stat)
                 file_stats.append(file_stat)
         file_stats_len = len(file_stats)
         if file_stats_len > 10:
