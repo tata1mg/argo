@@ -2,7 +2,8 @@
 
 A code quality & coverage analytics toolkit.
 
-Built with 🤍 @ Tata 1mg
+[![Built with ♥️ @ - Tata 1mg](https://img.shields.io/static/v1?label=Built+with+🤍&message=%40+Tata+1mg&color=fe6f61&style=for-the-badge)](https://www.1mg.com/jobs)
+
 
 ✨ FOSS, self hosted, self managed alternative to `codecov`, `codeclimate`, `codefactor` & similar services.
 
@@ -80,11 +81,20 @@ $ hector report
 
 ---
 
+
 ## Contributing
 
 Contributions are always welcome!
 
 Please read our [`contribution guidelines`](./CHANGELOG.md) and [`code of conduct`](./CODE_OF_CONDUCT.md) to get started.
+
+
+## We're always hiring!
+
+At Tata 1mg, we are always looking for passionate problem solvers.  
+
+🚀 Apply Here [`Careers 1mg`](https://www.1mg.com/jobs?utm=github/hector)  
+🥇 Know More [`About 1mg`](https://www.1mg.com/aboutUs?utm=github/hector)
 
 
 ## License
