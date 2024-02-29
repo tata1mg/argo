@@ -2,7 +2,7 @@
 
 A code quality & coverage analytics toolkit.
 
-[![Built with ♥️ @ - Tata 1mg](https://img.shields.io/static/v1?label=Built+with+🤍&message=%40+Tata+1mg&color=fe6f61&style=for-the-badge)](https://www.1mg.com/jobs)
+[![Built with 🤍 @ - Tata 1mg](https://img.shields.io/static/v1?label=Built+with+🤍&message=%40+Tata+1mg&color=fe6f61&style=for-the-badge)](https://www.1mg.com/jobs)
 
 
 ✨ FOSS, self hosted, self managed alternative to `codecov`, `codeclimate`, `codefactor` & similar services.
@@ -82,6 +82,26 @@ $ hector report
 ---
 
 
+## Maintainers
+
+<style>
+  table#maintainers-table td {
+    border: none;
+  }
+</style>
+<table id="maintainers-table">
+  <tbody>
+    <tr>
+      <td><a href="https://github.com/dollar-1mg"><img src="https://github.com/dollar-1mg.png" width="90px;"/></a></td>
+      <td><a href="https://github.com/0xlakshay"><img src="https://github.com/0xlakshay.png" width="90px;"/></a></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/dollar-1mg">dollar-1mg</a></td>
+      <td><a href="https://github.com/0xlakshay">0xlakshay</a></td>
+    </tr>
+  </tbody>
+</table>
+
 ## Contributing
 
 Contributions are always welcome!
@@ -89,14 +109,18 @@ Contributions are always welcome!
 Please read our [`contribution guidelines`](./CHANGELOG.md) and [`code of conduct`](./CODE_OF_CONDUCT.md) to get started.
 
 
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+---
+
 ## We're always hiring!
 
 At Tata 1mg, we are always looking for passionate problem solvers.  
 
+![Tata 1mg](./assets/ss/1mg-logo-large.jpeg)
+
+
 🚀 Apply Here [`Careers 1mg`](https://www.1mg.com/jobs?utm=github/hector)  
 🥇 Know More [`About 1mg`](https://www.1mg.com/aboutUs?utm=github/hector)
-
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
