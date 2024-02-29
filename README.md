@@ -84,11 +84,6 @@ $ hector report
 
 ## Maintainers
 
-<style>
-  table#maintainers-table td {
-    border: none;
-  }
-</style>
 <table id="maintainers-table">
   <tbody>
     <tr>
@@ -96,8 +91,8 @@ $ hector report
       <td><a href="https://github.com/0xlakshay"><img src="https://github.com/0xlakshay.png" width="90px;"/></a></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/dollar-1mg">dollar-1mg</a></td>
-      <td><a href="https://github.com/0xlakshay">0xlakshay</a></td>
+      <th><a href="https://github.com/dollar-1mg">dollar-1mg</a></th>
+      <th><a href="https://github.com/0xlakshay">0xlakshay</a></th>
     </tr>
   </tbody>
 </table>
@@ -119,7 +114,8 @@ Please read our [`contribution guidelines`](./CHANGELOG.md) and [`code of conduc
 
 At Tata 1mg, we are always looking for passionate problem solvers.  
 
-![Tata 1mg](./assets/ss/1mg-logo-large.jpeg)
+<img src="./assets/ss/1mg-logo-large.jpeg" width="450px;"/>
+
 
 
 🚀 Apply Here [`Careers 1mg`](https://www.1mg.com/jobs?utm=github/hector)  
