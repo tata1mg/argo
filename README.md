@@ -47,14 +47,14 @@ $ hector report
 
 ### 👩🏼‍💻 Core
 
-- [ ]  Add cli commands for all operations, using `Typer`
+- [x]  Add cli commands for all operations, using `Typer`
 - [ ]  Use `Pydantic` models for parsing reports
 - [ ]  Use `httpx` for http clients
 - [ ]  Refactor for dependency inversion
 
 ### ✨ Features
 
-- [ ] Bundle `diff-cover`
+- [x] Bundle `diff-cover`
 - [ ] Add support for Code health metrics
 - [ ] Bundle `radon`
 
