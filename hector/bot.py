@@ -2,6 +2,7 @@ import json
 import os
 
 from datetime import datetime, timedelta, timezone
+from typing import Optional
 
 from rich.panel import Panel
 from rich.pretty import Pretty
@@ -13,10 +14,42 @@ from .models import CovReport, DiffCovReport
 
 
 class CoverageBot:
-    def __init__(self, cov: CovReport, diff_cov: DiffCovReport):
+    def __init__(self, cov: Optional[CovReport]=None, diff_cov: Optional[DiffCovReport]=None):
+        self.client = APIClient()
+        if not diff_cov or not cov:
+            diff_cov, cov = self.parse_reports()
         self.diff_cov = diff_cov
         self.cov = cov
-        self.client = APIClient()
+
+    def post(
+        self,
+        dry: Optional[bool] =  False
+    ):
+        with console.status("Preparing Comment"):
+            bot_comment = self.get_comment()
+            console.rule("Comment")
+            console.log(Panel(bot_comment))
+
+        if dry:
+            return
+
+        with console.status("Posting Comment", spinner="aesthetic"):
+            bot.post_comment(comment=bot_comment)
+
+    def parse_reports():
+        if not os.path.isfile("diff-coverage.json"):
+            raise Exception("Missing diff-coverage.json!")
+
+        if not os.path.isfile("coverage.json"):
+            raise Exception("Please provide coverage.json")
+
+        with console.status("Parsing Reports"):
+            with open("diff-coverage.json", encoding="utf-8") as f:
+                diff_cov = DiffCovReport(**json.load(f))
+
+            with open("coverage.json", encoding="utf-8") as f:
+                cov = CovReport(**json.load(f))
+        return diff_cov, cov
 
     def get_comment(self):
         return self._format_comment()

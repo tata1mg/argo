@@ -1,32 +1,42 @@
+import sys
+
 import typer
 
 from typing_extensions import Annotated
 
-from .typers import bot_typer, diff_typer, report_typer
-from .typers.bot import post
+from .bot import CoverageBot
+from .diff import generate_report
 
 
 core_typer = typer.Typer(
-    help="A code quality & coverage analytics toolkit.\n\nBuilt with 🤍 @ Tata 1mg."
+    help="A code quality & coverage analytics toolkit.\n\nBuilt with 🤍 @ Tata 1mg.",
+    no_args_is_help=True
 )
-core_typer.add_typer(diff_typer, name="diff")
-core_typer.add_typer(bot_typer, name="bot")
-core_typer.add_typer(report_typer, name="report")
 
 
-@core_typer.command(help="Post a comment. Alias for `bot post`")
-def comment(
-    bitbucket: Annotated[
-        bool,
-        typer.Option(help="Post comment to bitbucket PR."),
-    ] = False,
+
+@core_typer.command(help="Generate diff coverage report and post a comment to the Bitbucket PR.")
+def report(
+    fail_under: Annotated[
+        int,
+        typer.Option(help="Diff Coverage percent below which error code is returned."),
+    ] = None,
     dry: Annotated[
         bool,
         typer.Option(help="Only prepare comment without actually posting."),
     ] = False,
 ):
-    post(bitbucket=bitbucket, dry=dry)
+    returncode, stdout, stderr = generate_report(fail_under=fail_under)
+    print(stdout)
+    bot = CoverageBot()
+    bot.post(dry=dry)
+    if int(returncode)!=1:
+        print(stderr)
+        sys.exit(int(returncode))
 
+@core_typer.command(help="[WIP] Serve hector as a web application.")
+def serve():
+    ...
 
 if __name__ == "__main__":
     core_typer()
