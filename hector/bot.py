@@ -72,7 +72,7 @@ class CoverageBot:
 
         # add file stats
         if lines_missed != 0:
-            comment += "#### `📂 Files with missing coverage` \n\n"
+            comment += "#### `📂 Missing Coverage` \n\n"
             file_stats = self._format_file_stats()
             comment += file_stats
 
@@ -102,7 +102,7 @@ class CoverageBot:
         step_link = f"https://bitbucket.org/{os.environ.get('BITBUCKET_WORKSPACE')}/{os.environ.get('BITBUCKET_REPO_SLUG')}/pipelines/results/{os.environ.get('BITBUCKET_PIPELINE_UUID')}/steps/{os.environ.get('BITBUCKET_STEP_UUID')}"
         if file_stats_len > 10:
             file_stats.append(
-                f"> *{file_stats_len - 10}_ more files [Full Coverage Report]({step_link})* \n\n"
+                f"> *{file_stats_len - 10} more files [Full Coverage Report]({step_link})* \n\n"
             )
         else:
             file_stats.append(
