@@ -72,7 +72,7 @@ class CoverageBot:
 
         # add file stats
         if lines_missed != 0:
-            comment += "📂 Files with missing coverage \n\n"
+            comment += "##### 📂 Files with missing coverage \n\n"
             file_stats = self._format_file_stats()
             comment += file_stats
 
@@ -89,7 +89,7 @@ class CoverageBot:
 
     def _format_file_stats(self):
         src_stats = self.diff_cov.src_stats
-        file_stats = ["sh"]
+        file_stats = ["```sh"]
         for file, stat in src_stats.items():
             if stat["percent_covered"] < 100:
                 file_stat = f"❗️ {stat['percent_covered']:5.2f}% | {file} {self.__convert_to_ranges(stat['violation_lines'])}"
@@ -98,15 +98,15 @@ class CoverageBot:
         file_stats_len = len(file_stats)
         if file_stats_len > 10:
             file_stats = file_stats[:10]
-        file_stats.append("")
+        file_stats.append("```")
         step_link = f"https://bitbucket.org/{os.environ.get('BITBUCKET_WORKSPACE')}/{os.environ.get('BITBUCKET_REPO_SLUG')}/pipelines/results/{os.environ.get('BITBUCKET_PIPELINE_UUID')}/steps/{os.environ.get('BITBUCKET_STEP_UUID')}"
         if file_stats_len > 10:
             file_stats.append(
-                f"> _{file_stats_len - 10}_ more files [Full Coverage Report]({step_link}) \n\n"
+                f"> *{file_stats_len - 10}_ more files [Full Coverage Report]({step_link})* \n\n"
             )
         else:
             file_stats.append(
-                f"> Check [Full Coverage Report]({step_link}) \n\n"
+                f"> *Check [Full Coverage Report]({step_link})* \n\n"
             )
         return "\n".join(file_stats)
 
