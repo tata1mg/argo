@@ -2,13 +2,13 @@
 
 A code quality & coverage analytics toolkit.
 
-Built with 🤍 @ Tata 1mg
+[![Built with 🤍 @ - Tata 1mg](https://img.shields.io/static/v1?label=Built+with+🤍&message=%40+Tata+1mg&color=fe6f61&style=for-the-badge)](https://www.1mg.com/jobs)
+
 
 ✨ FOSS, self hosted, self managed alternative to `codecov`, `codeclimate`, `codefactor` & similar services.
 
 - Lightweight, stateless CI pipeline integration
 - PR comments with coverage & code health reports
-
 
 ## Installation
 
@@ -18,22 +18,44 @@ pip install git+https://github.com/tata1mg/hector.git
 
 ## Usage
 
+Simply type hector in your terminal for all the options
 ```py
-python3 -m hector.bot
+$ hector
+```
+
+**Add following steps to your bitbucket pipeline**
+
+Run your test suite & generate coverage report
+
+```py
+$ coverage run pytest .
+```
+
+Generate `coverage.json` (required for parsable coverage stats)
+& `coverage.xml` (required by hector diff report)
+
+```py
+$ coverage json
+$ coverage xml
+```
+
+Run hector inside the bitbucket pipeline to post a comment
+```py
+$ hector report
 ```
 
 ## Roadmap
 
 ### 👩🏼‍💻 Core
 
-- [ ]  Add cli commands for all operations, using `Typer`
+- [x]  Add cli commands for all operations, using `Typer`
 - [ ]  Use `Pydantic` models for parsing reports
 - [ ]  Use `httpx` for http clients
 - [ ]  Refactor for dependency inversion
 
 ### ✨ Features
 
-- [ ] Bundle `diff-cover`
+- [x] Bundle `diff-cover`
 - [ ] Add support for Code health metrics
 - [ ] Bundle `radon`
 
@@ -59,6 +81,22 @@ python3 -m hector.bot
 
 ---
 
+
+## Maintainers
+
+<table id="maintainers-table">
+  <tbody>
+    <tr>
+      <td><a href="https://github.com/dollar-1mg"><img src="https://github.com/dollar-1mg.png" width="90px;"/></a></td>
+      <td><a href="https://github.com/0xlakshay"><img src="https://github.com/0xlakshay.png" width="90px;"/></a></td>
+    </tr>
+    <tr>
+      <th><a href="https://github.com/dollar-1mg">dollar-1mg</a></th>
+      <th><a href="https://github.com/0xlakshay">0xlakshay</a></th>
+    </tr>
+  </tbody>
+</table>
+
 ## Contributing
 
 Contributions are always welcome!
@@ -69,3 +107,16 @@ Please read our [`contribution guidelines`](./CHANGELOG.md) and [`code of conduc
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+---
+
+## We're always hiring!
+
+At Tata 1mg, we are always looking for passionate problem solvers.  
+
+<img src="./assets/ss/1mg-logo-large.jpeg" width="450px;"/>
+
+
+
+🚀 Apply Here [`Careers 1mg`](https://www.1mg.com/jobs?utm=github/hector)  
+🥇 Know More [`About 1mg`](https://www.1mg.com/aboutUs?utm=github/hector)

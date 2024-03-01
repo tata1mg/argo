@@ -1,6 +1,7 @@
 # TODO: add module docstring, for auto documentation
 # TODO: move to pydantic/mgspec models
 import requests
+
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
@@ -20,4 +21,6 @@ class APIClient:
         return session
 
     def post(self, url, data, headers: dict = None):
-        return self.session.post(url, data=data, headers=headers, timeout=self.timeout)
+        return self.session.post(
+            url, data=data, headers=headers, timeout=self.timeout
+        )
