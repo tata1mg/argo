@@ -91,5 +91,3 @@ Please read our [`contribution guidelines`](./CHANGELOG.md) and [`code of conduc
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
----
