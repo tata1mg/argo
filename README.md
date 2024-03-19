@@ -107,16 +107,3 @@ Please read our [`contribution guidelines`](./CHANGELOG.md) and [`code of conduc
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
----
-
-## We're always hiring!
-
-At Tata 1mg, we are always looking for passionate problem solvers.  
-
-<img src="./assets/ss/1mg-logo-large.jpeg" width="450px;"/>
-
-
-
-🚀 Apply Here [`Careers 1mg`](https://www.1mg.com/jobs?utm=github/hector)  
-🥇 Know More [`About 1mg`](https://www.1mg.com/aboutUs?utm=github/hector)
