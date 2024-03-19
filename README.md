@@ -81,22 +81,6 @@ $ hector report
 
 ---
 
-
-## Maintainers
-
-<table id="maintainers-table">
-  <tbody>
-    <tr>
-      <td><a href="https://github.com/dollar-1mg"><img src="https://github.com/dollar-1mg.png" width="90px;"/></a></td>
-      <td><a href="https://github.com/0xlakshay"><img src="https://github.com/0xlakshay.png" width="90px;"/></a></td>
-    </tr>
-    <tr>
-      <th><a href="https://github.com/dollar-1mg">dollar-1mg</a></th>
-      <th><a href="https://github.com/0xlakshay">0xlakshay</a></th>
-    </tr>
-  </tbody>
-</table>
-
 ## Contributing
 
 Contributions are always welcome!
@@ -109,14 +93,3 @@ Please read our [`contribution guidelines`](./CHANGELOG.md) and [`code of conduc
 [MIT](https://choosealicense.com/licenses/mit/)
 
 ---
-
-## We're always hiring!
-
-At Tata 1mg, we are always looking for passionate problem solvers.  
-
-<img src="./assets/ss/1mg-logo-large.jpeg" width="450px;"/>
-
-
-
-🚀 Apply Here [`Careers 1mg`](https://www.1mg.com/jobs?utm=github/hector)  
-🥇 Know More [`About 1mg`](https://www.1mg.com/aboutUs?utm=github/hector)
