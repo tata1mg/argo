@@ -166,3 +166,4 @@ if __name__ == "__main__":
     bot_comment = bot.get_comment()
     bot_logger.info(bot_comment)
     bot.post_comment(comment=bot_comment)
+
